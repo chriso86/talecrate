@@ -1,0 +1,19 @@
+{
+  "name": "rest-server",
+  "version": "1.0.0",
+  "description": "REST for Story World API resources",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Oliver",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jwt-simple": "^0.5.1",
+    "morgan": "^1.8.1",
+    "mongoose": "4.9.7",
+    "cookie-parser": "1.4.3"
+  }
+}
