@@ -6,16 +6,16 @@ var storySchema = new Schema({
     body: String,
     genre: {
         type: Schema.ObjectId,
-        ref: 'genres'
+        ref: 'Genre'
     },
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     },
     audio_clips: {
         type: Schema.ObjectId,
-        ref: 'audio_clips'
+        ref: 'AudioClip'
     }
 });
 
-mongoose.model('stories', storySchema);
+module.exports = mongoose.model('Story', storySchema);

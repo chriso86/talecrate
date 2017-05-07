@@ -1,54 +1,72 @@
+var Character = require('../models/character.model');
+
 var characters = {
-    getAll: function(request, result) {
-        var allCharacters = data;
-
-        result.json(allCharacters);
+    getAll: function(request, response) {
+        Character.find({})
+            .exec()
+            .then((characters) => {
+                response.send(characters);
+            })
+            .catch((error) => {
+                response.send('Error looking up characters');
+            });
     },
 
-    getOne: function(request, result) {
-        var id = request.params.id;
-        var character = data[0];
-
-        result.json(character);
+    getOne: function(request, response) {
+        Character.findOne({ _id: request.params.id })
+            .exec()
+            .then((character) => {
+                response.send(character);
+            })
+            .catch((error) => {
+                response.send("Error looking up character");
+            });
     },
 
-    create: function(request, result) {
-        var newCharacter = request.body;
-        data.push(newCharacter);
+    create: function(request, response) {
+        var newCharacter = new Character();
 
-        result.json(newCharacter);
+        newCharacter.name = request.body.name;
+        newCharacter.description = request.body.description;
+
+        newCharacter.save()
+            .then((character) => {
+                response.send(character);
+            })
+            .catch((error) => {
+                response.send('Error creating character');
+            });
     },
 
-    update: function(request, result) {
-        var updatedCharacter = result.body;
-        var id = request.params.id;
-        data[id] = updatedCharacter;
-
-        result.json(updatedCharacter);
+    update: function(request, response) {
+        Character.findOneAndUpdate(
+                { _id: request.params.id },
+                { $set: {
+                    name: request.body.name,
+                    description: request.body.description
+                }},
+                { upsert: true }
+            )
+            .then((character) => {
+                response.status(204);
+                response.send(character);
+            })
+            .catch((error) => { 
+                response.send('Error updating character');
+            });
     },
 
-    delete: function(request, result) {
-        var id = request.params.id;
-
-        data.splice(id, 1);
-
-        result.json(true);
+    delete: function(request, response) {
+        Character.findOneAndRemove(
+                { _id: request.params.id }
+            )
+            .then((character) => {
+                response.send('Character deleted successfully');
+            })
+            .catch((error) => {
+                response.send('Error deleting character');
+            });
     }
 };
-
-var data = [
-    {
-        'name': 'William Oakley',
-        'id': 1
-    },
-    {
-        'name': 'Charles Andia',
-        'id': 2
-    },
-    {
-        'name': 'Jack Adams',
-        'id': 3
-    }
-];
 
 module.exports = characters;

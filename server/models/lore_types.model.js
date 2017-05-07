@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var worldTypeSchema = new Schema({
+var loreTypeSchema = new Schema({
     description: String
 });
 
-mongoose.model('world_types', worldTypeSchema);
+module.exports = mongoose.model('LoreType', loreTypeSchema);

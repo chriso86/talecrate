@@ -7,32 +7,32 @@ var worldSchema = new Schema({
     description: String,
     type: {
         type: Schema.ObjectId,
-        ref: 'world_types'
+        ref: 'WorldType'
     },
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     },
     user: {
         type: Schema.ObjectId,
-        ref: 'users'
+        ref: 'User'
     },
     areas: [{
         type: Schema.ObjectId,
-        ref: 'areas'
+        ref: 'Area'
     }],
     characters: [{
         type: Schema.ObjectId,
-        ref: 'characters'
+        ref: 'Character'
     }],
     collaborators: [{
         type: Schema.ObjectId,
-        ref: 'collaborators'
+        ref: 'Contributor'
     }],
     creatures: [{
         type: Schema.ObjectId,
-        ref: 'creatures'
+        ref: 'Creature'
     }]
 });
 
-mongoose.model('worlds', worldSchema);
+module.exports = mongoose.model('World', worldSchema);

@@ -13,12 +13,11 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
-mongoose.connect('mongodb://127.0.0.1/storytime');
-
-// Load all model files
-fs.readdirSync(__dirname + '/models').forEach((fileName) => {
-    if(~fileName.indexOf('.js')) require(__dirname + '/models/' + fileName);
-});
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://127.0.0.1/storyworld');
 
 // Cross-Origin Resource Sharing
 app.all('/*', function(request, result, next){

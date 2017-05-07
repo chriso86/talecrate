@@ -8,20 +8,20 @@ var loreSchema = new Schema({
     body: String,
     type: {
         type: Schema.ObjectId,
-        ref: 'lore_types'
+        ref: 'LoreType'
     },
     characters: [{
         type: Schema.ObjectId,
-        ref: 'characters'
+        ref: 'Character'
     }],
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     },
     audio_clips: {
         type: Schema.ObjectId,
-        ref: 'audio_clips'
+        ref: 'AudioClip'
     }
 });
 
-mongoose.model('lore', loreSchema);
+module.exports = mongoose.model('Lore', loreSchema);

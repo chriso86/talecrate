@@ -21,16 +21,16 @@ var characterSchema = new Schema({
     }],
     Stories: [{
         type: Schema.ObjectId,
-        ref: 'stories'
+        ref: 'Story'
     }],
     family: [{
         type: Schema.ObjectId,
-        ref: 'characters'
+        ref: 'Character'
     }],
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     },
 });
 
-mongoose.model('characters', characterSchema);
+module.exports = mongoose.model('Character', characterSchema);

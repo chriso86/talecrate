@@ -6,24 +6,24 @@ var areaSchema = new Schema({
     description: String,
     type: {
         type: Schema.ObjectId,
-        ref: 'area_types'
+        ref: 'AreaType'
     },
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     },
     lore: [{
         type: Schema.ObjectId,
-        ref: 'lore'
+        ref: 'Lore'
     }],
     characters: [{
         type: Schema.ObjectId,
-        ref: 'characters'
+        ref: 'Character'
     }],
     creatures: [{
         type: Schema.ObjectId,
-        ref: 'creatures'
+        ref: 'Creature'
     }]
 });
 
-mongoose.model('areas', areaSchema);
+module.exports = mongoose.model('Area', areaSchema);

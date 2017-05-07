@@ -1,54 +1,72 @@
+var Contributor = require('../models/contributor.model');
+
 var contributors = {
-    getAll: function(request, result) {
-        var allContributors = data;
-
-        result.json(allContributors);
+    getAll: function(request, response) {
+        Contributor.find({})
+            .exec()
+            .then((contributors) => {
+                response.send(contributors);
+            })
+            .catch((error) => {
+                response.send('Error looking up contributors');
+            });
     },
 
-    getOne: function(request, result) {
-        var id = request.params.id;
-        var contributor = data[0];
-
-        result.json(contributor);
+    getOne: function(request, response) {
+        Contributor.findOne({ _id: request.params.id })
+            .exec()
+            .then((contributor) => {
+                response.send(contributor);
+            })
+            .catch((error) => {
+                response.send("Error looking up contributor");
+            });
     },
 
-    create: function(request, result) {
-        var newContributor = request.body;
-        data.push(newContributor);
+    create: function(request, response) {
+        var newContributor = new Contributor();
 
-        result.json(newContributor);
+        newContributor.name = request.body.name;
+        newContributor.description = request.body.description;
+
+        newContributor.save()
+            .then((contributor) => {
+                response.send(contributor);
+            })
+            .catch((error) => {
+                response.send('Error creating contributor');
+            });
     },
 
-    update: function(request, result) {
-        var updatedContributor = result.body;
-        var id = request.params.id;
-        data[id] = updatedContributor;
-
-        result.json(updatedContributor);
+    update: function(request, response) {
+        Contributor.findOneAndUpdate(
+                { _id: request.params.id },
+                { $set: {
+                    name: request.body.name,
+                    description: request.body.description
+                }},
+                { upsert: true }
+            )
+            .then((contributor) => {
+                response.status(204);
+                response.send(contributor);
+            })
+            .catch((error) => { 
+                response.send('Error updating contributor');
+            });
     },
 
-    delete: function(request, result) {
-        var id = request.params.id;
-
-        data.splice(id, 1);
-
-        result.json(true);
+    delete: function(request, response) {
+        Contributor.findOneAndRemove(
+                { _id: request.params.id }
+            )
+            .then((contributor) => {
+                response.send('Contributor deleted successfully');
+            })
+            .catch((error) => {
+                response.send('Error deleting contributor');
+            });
     }
 };
-
-var data = [
-    {
-        'name': 'Chris',
-        'id': 1
-    },
-    {
-        'name': 'Jason',
-        'id': 2
-    },
-    {
-        'name': 'Jacques',
-        'id': 3
-    }
-];
 
 module.exports = contributors;

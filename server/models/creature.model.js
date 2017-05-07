@@ -18,12 +18,12 @@ var creatureSchema = new Schema({
     }],
     place_of_origin: {
         type: Schema.ObjectId,
-        ref: 'areas'
+        ref: 'Area'
     },
     cover_image: {
         type: Schema.ObjectId,
-        ref: 'cover_images'
+        ref: 'CoverImage'
     }
 });
 
-mongoose.model('creatures', creatureSchema);
+module.exports = mongoose.model('Creature', creatureSchema);

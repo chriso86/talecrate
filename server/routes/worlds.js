@@ -1,67 +1,72 @@
-var mongoose = require('mongoose');
+var World = require('../models/world.model');
 
 var worlds = {
-    getAll: function(request, result) {
-        var result = mongoose.model('worlds')
-            .find((err, worlds) => {
-                result.send(worlds);
+    getAll: function(request, response) {
+        World.find({})
+            .exec()
+            .then((worlds) => {
+                response.send(worlds);
+            })
+            .catch((error) => {
+                response.send('Error looking up worlds');
             });
-
-        return result;
     },
 
-    getOne: function(request, result) {
-        var result = mongoose.model('worlds')
-            .find({ _id: request.params.id }, (err, worlds) => {
-                result.send(worlds);
+    getOne: function(request, response) {
+        World.findOne({ _id: request.params.id })
+            .exec()
+            .then((world) => {
+                response.send(world);
+            })
+            .catch((error) => {
+                response.send("Error looking up world");
             });
-        
-        return result;
     },
 
-    create: function(request, result) {
-        var newWorld = new worldSchema({
-            name: 'Test world',
-            description: 'A test world, I hope I see this'
-        });
+    create: function(request, response) {
+        var newWorld = new World();
 
-        newWorld.save((error, world) => {
-            if(error) result.send(error);
+        newWorld.name = request.body.name;
+        newWorld.description = request.body.description;
 
-            result.send(world);
-        })
+        newWorld.save()
+            .then((world) => {
+                response.send(world);
+            })
+            .catch((error) => {
+                response.send('Error creating world');
+            });
     },
 
-    update: function(request, result) {
-        var updatedWorld = result.body;
-        var id = request.params.id;
-        data[id] = updatedWorld;
-
-        result.json(updatedWorld);
+    update: function(request, response) {
+        World.findOneAndUpdate(
+                { _id: request.params.id },
+                { $set: {
+                    name: request.body.name,
+                    description: request.body.description
+                }},
+                { upsert: true }
+            )
+            .then((world) => {
+                response.status(204);
+                response.send(world);
+            })
+            .catch((error) => { 
+                response.send('Error updating world');
+            });
     },
 
-    delete: function(request, result) {
-        var id = request.params.id;
-
-        data.splice(id, 1);
-
-        result.json(true);
+    delete: function(request, response) {
+        World.findOneAndRemove(
+                { _id: request.params.id }
+            )
+            .then((world) => {
+                response.send('World deleted successfully');
+            })
+            .catch((error) => {
+                response.send('Error deleting world');
+            });
     }
 };
-
-var data = [
-    {
-        'name': 'Helium',
-        'id': 1
-    },
-    {
-        'name': 'Northrandia',
-        'id': 2
-    },
-    {
-        'name': 'Estria',
-        'id': 3
-    }
-];
 
 module.exports = worlds;

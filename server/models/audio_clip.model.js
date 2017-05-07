@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var coverImageSchema = new Schema({
+var audioClipSchema = new Schema({
     data: Buffer,
     contentType: String,
     contentSize: Number
 });
 
-mongoose.model('cover_images', coverImageSchema);
+module.exports = mongoose.model('AudioClip', audioClipSchema);

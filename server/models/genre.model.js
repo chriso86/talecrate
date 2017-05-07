@@ -6,4 +6,4 @@ var genreSchema = new Schema({
     popularity_rating: Number
 });
 
-mongoose.model('genres', genreSchema);
+module.exports = mongoose.model('Genre', genreSchema);
