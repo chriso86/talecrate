@@ -24,7 +24,7 @@ export class AuthService {
     }
   };
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
   };
 
   login(username, password) {

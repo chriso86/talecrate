@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    background: #eee;
+}
+
+.sw-feature-card {
+    width: 400px;
+}
+
+.sw-button-row button {
+    margin: 0 10px;
+}
+
+.sw-logo-container {
+    vertical-align: middle;
+}
+
+.sw-header-container {
+    border-bottom: 2px solid #ddd;;
+    background: #fff;
+}
+
+.clearfix {
+    clear: both;
+}
