@@ -1,0 +1,1 @@
+C:\Personal\Github\storyworld\Storyworld.Mobile\Storyworld.Mobile\Storyworld.Mobile.UWP\Storyworld.Mobile.UWP.csproj;x86
