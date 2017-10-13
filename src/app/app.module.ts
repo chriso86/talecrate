@@ -9,9 +9,9 @@ import { RouterModule, Routes } from '@angular/router';
 // Story World
 import { CommonComponentModule } from './common/common.component.module';
 import { WebsiteModule } from './website/website.module';
-import { ToolsModule } from './tools/tools.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 // TODO: Find a better way to handle routing
-import { HomeComponent } from './website/home/home.component';
+import { HomeComponent } from "./dashboard/pages/home/home.component";
 
 // Primary Component
 import { AppComponent } from './app.component';
@@ -34,7 +34,7 @@ const routes = [
     // Story World
     WebsiteModule,
     CommonComponentModule,
-    ToolsModule,
+    DashboardModule,
     // Routing
     RouterModule.forRoot(routes)
   ],

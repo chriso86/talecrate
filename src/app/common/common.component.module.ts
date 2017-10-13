@@ -2,30 +2,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Google Material Design
-import { MdButtonModule, MdCardModule, MdGridListModule } from '@angular/material';
-
 // Story World
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StandardButtonComponent } from './components/atoms/standard-button/standard-button.component';
+import { IconButtonComponent } from './components/atoms/icon-button/icon-button.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    MdButtonModule,
-    MdCardModule,
-    MdGridListModule
+    CommonModule
   ],
   declarations: [
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StandardButtonComponent,
+    IconButtonComponent
   ],
   exports: [
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StandardButtonComponent,
+    IconButtonComponent
   ]
 })
 export class CommonComponentModule { }
