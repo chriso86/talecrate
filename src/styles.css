@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 50px;
+    background: #eee;
+}
+
+.button {
+    display: inline-block;
+    width: auto;
+    background: #ddd;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    position: relative;
+    top: 0px !important;
+}
