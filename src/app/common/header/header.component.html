@@ -1,0 +1,39 @@
+<div class="ui padded grid">
+    <div class="four wide column">
+        <a href="/">
+            <img src="../../assets/img/logo.png" height="50"/>
+        </a>
+    </div>
+    <div class="six wide column">
+        <div id="main-menu">
+            <a class="active" href="/"> Home </a>
+            <a href="about"> About </a>
+            <a href="contact"> Contact </a>
+        </div>
+    </div>
+    <div class="six wide column">
+        <div id="user-context-menu">
+            <div class="ui primary dropdown button" suiDropdown [(isOpen)]="isOpen" [isDisabled]="isDisabled">
+                <i class="user icon"></i>
+                <div class="text">
+                    Christopher Oliver
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu" suiDropdownMenu>
+                    <div class="item">
+                        <i class="user circle outline icon"></i>
+                        My Account
+                    </div>
+                    <div class="item">
+                        <i class="privacy icon"></i>
+                        Security
+                    </div>
+                    <div class="item">
+                        <i class="sign out icon"></i>
+                        Log Out
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

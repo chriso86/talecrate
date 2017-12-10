@@ -6,15 +6,20 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
+// Semantic UI
+import { SuiModule, SuiDropdownModule } from 'ng2-semantic-ui';
+
 // Story World
 import { CommonComponentModule } from './common/common.component.module';
 import { WebsiteModule } from './website/website.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 // TODO: Find a better way to handle routing
-import { HomeComponent } from "./dashboard/pages/home/home.component";
+import { HomeComponent } from './dashboard/pages/home/home.component';
+import { LeftMenuComponent } from './common/left-menu/left-menu.component';
 
 // Primary Component
 import { AppComponent } from './app.component';
+import { SuiAccordion } from 'ng2-semantic-ui/dist';
 
 // Routing
 const routes = [
@@ -31,6 +36,8 @@ const routes = [
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    // Semantic UI
+    SuiModule,
     // Story World
     WebsiteModule,
     CommonComponentModule,
@@ -39,7 +46,6 @@ const routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [AppComponent],
-
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

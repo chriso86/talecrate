@@ -2,30 +2,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Semantic UI
+import { SuiDropdownModule } from 'ng2-semantic-ui';
+
 // Story World
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { StandardButtonComponent } from './components/atoms/standard-button/standard-button.component';
-import { IconButtonComponent } from './components/atoms/icon-button/icon-button.component';
+import { LeftMenuComponent } from './left-menu/left-menu.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SuiDropdownModule
   ],
   declarations: [
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    StandardButtonComponent,
-    IconButtonComponent
+    LeftMenuComponent
   ],
   exports: [
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    StandardButtonComponent,
-    IconButtonComponent
+    LeftMenuComponent
   ]
 })
 export class CommonComponentModule { }

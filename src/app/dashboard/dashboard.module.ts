@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Common Modules
-import { CommonComponentModule } from "../common/common.component.module";
+import { CommonComponentModule } from '../common/common.component.module';
 
 // Dashboard Modules
 import { DashboardToolsComponent } from './tools/dashboard.tools.component';

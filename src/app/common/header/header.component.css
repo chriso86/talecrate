@@ -1,3 +1,29 @@
 .logo {
     height:50px;
 }
+
+#user-context-menu {
+    float:right;
+}
+
+#main-menu {
+    display: block;
+}
+
+#main-menu a {
+    font-size: 22px;
+    font-family: "Verdana";
+    color: #999;
+    padding: 14px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+#main-menu a:hover {
+    background: #ddd;
+    color: #000;
+}
+
+#main-menu a.active {
+    color: #f00;
+}
