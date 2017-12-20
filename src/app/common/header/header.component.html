@@ -1,14 +1,14 @@
 <div class="ui padded grid">
     <div class="four wide column">
         <a href="/">
-            <img src="../../assets/img/logo.png" height="50"/>
+            <img src="../../assets/img/logo.png" height="36"/>
         </a>
     </div>
     <div class="six wide column">
         <div id="main-menu">
-            <a class="active" href="/"> Home </a>
-            <a href="about"> About </a>
-            <a href="contact"> Contact </a>
+            <a class="active" [routerLink]="['/home']"> Home </a>
+            <a [routerLink]="['/about']"> About </a>
+            <a [routerLink]="['/contact']"> Contact </a>
         </div>
     </div>
     <div class="six wide column">
