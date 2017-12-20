@@ -40,7 +40,7 @@
     "popper.js": "^1.11.1"
   },
   "devDependencies": {
-    "@angular/cli": "~1.2.8",
+    "@angular/cli": "^1.6.1",
     "@angular/common": "^4.3.1",
     "@angular/compiler": "^4.3.1",
     "@angular/compiler-cli": "^4.3.1",
