@@ -1,9 +1,10 @@
 // Angular Modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // Common Modules
-import { CommonComponentModule } from "../common/common.component.module";
+import { CommonComponentModule } from '../common/common.component.module';
 
 // Dashboard Modules
 import { DashboardToolsComponent } from './tools/dashboard.tools.component';
@@ -16,11 +17,15 @@ import { StoriesComponent } from './pages/stories/stories.component';
 import { SubscribersComponent } from './pages/subscribers/subscribers.component';
 import { UserViewsComponent } from './pages/user-views/user-views.component';
 import { WorldsComponent } from './pages/worlds/worlds.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { appRoutes } from '../app.routing';
 
 @NgModule({
   imports: [
     CommonModule,
-    CommonComponentModule
+    CommonComponentModule,
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     DashboardToolsComponent,
@@ -32,7 +37,8 @@ import { WorldsComponent } from './pages/worlds/worlds.component';
     StoriesComponent,
     SubscribersComponent,
     UserViewsComponent,
-    WorldsComponent
+    WorldsComponent,
+    DashboardComponent
   ]
 })
 export class DashboardModule { }
