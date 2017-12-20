@@ -13,8 +13,6 @@ import { SuiModule, SuiDropdownModule } from 'ng2-semantic-ui';
 import { CommonComponentModule } from './common/common.component.module';
 import { WebsiteModule } from './website/website.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { HomeComponent } from './dashboard/pages/home/home.component';
-import { LeftMenuComponent } from './common/left-menu/left-menu.component';
 
 // Primary Component
 import { AppComponent } from './app.component';

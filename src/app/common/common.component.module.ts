@@ -1,6 +1,7 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // Semantic UI
 import { SuiDropdownModule } from 'ng2-semantic-ui';
@@ -14,7 +15,8 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
 @NgModule({
   imports: [
     CommonModule,
-    SuiDropdownModule
+    SuiDropdownModule,
+    RouterModule
   ],
   declarations: [
     LoginComponent,
