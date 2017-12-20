@@ -1,0 +1,16 @@
+#world-list {
+    padding-bottom: 30px;
+}
+
+.description {
+    max-height: 80px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.image {
+    overflow: hidden;
+    height: 160px;
+}

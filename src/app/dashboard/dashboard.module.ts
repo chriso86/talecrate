@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 // Common Modules
 import { CommonComponentModule } from '../common/common.component.module';
 
+// Semantic UI
+import { SuiModule, SuiDropdownModule } from 'ng2-semantic-ui';
+
 // Dashboard Modules
 import { DashboardToolsComponent } from './tools/dashboard.tools.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -25,6 +28,7 @@ import { appRoutes } from '../app.routing';
   imports: [
     CommonModule,
     CommonComponentModule,
+    SuiModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [

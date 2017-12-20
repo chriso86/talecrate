@@ -1,3 +1,54 @@
-<p>
-  worlds works!
-</p>
+<div class="ui padded grid">
+  <div class="sixteen wide column">
+    <div class="ui menu">
+      <div class="item">
+        <h2 class="ui header"> Worlds </h2>
+      </div>
+      <div class="right item">
+          <div class="ui pointing dropdown link" suiDropdown>
+              <span class="text"> {{filter.genre.name}} </span>
+              <i class="dropdown icon"></i>
+              <div class="menu" suiDropdownMenu>
+                  <div *ngFor="let genre of genres" class="item" (click)="filterGenre(genre)"> {{genre.name}} </div>
+              </div>
+          </div>
+      </div>
+      <div class="right item">
+        <div class="ui action input">
+          <input type="text" placeholder="Search">
+          <div class="ui button">Go</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="world-list" class="ui grid container">
+  <div class="sixteen wide column">
+    <div class="ui four stackable link cards">
+      <div *ngFor="let world of worlds" class="card">
+        <div class="image">
+          <img [src]="world.imageUrl">
+        </div>
+        <div class="content">
+          <div class="header"> {{world.name}} </div>
+          <div class="meta">
+            <a *ngFor="let genre of world.genres | "> {{genre.name}} </a>
+          </div>
+          <div class="description">
+            {{ world.description }}
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            {{ world.createdDate | date: 'd MMM yyyy' }}
+          </span>
+          <span>
+            <i class="user icon"></i>
+            {{ world.createdBy }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
