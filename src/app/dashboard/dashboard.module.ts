@@ -21,6 +21,10 @@ import { SubscribersComponent } from './pages/subscribers/subscribers.component'
 import { UserViewsComponent } from './pages/user-views/user-views.component';
 import { WorldsComponent } from './pages/worlds/worlds.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ArrayHasObjectPipe } from '../common/filters/array-has-object';
+
+// Filters
+import {  } from '';
 
 import { appRoutes } from '../app.routing';
 
@@ -42,7 +46,11 @@ import { appRoutes } from '../app.routing';
     SubscribersComponent,
     UserViewsComponent,
     WorldsComponent,
-    DashboardComponent
+    DashboardComponent,
+    ArrayHasObjectPipe
+  ],
+  exports: [
+    ArrayHasObjectPipe
   ]
 })
 export class DashboardModule { }

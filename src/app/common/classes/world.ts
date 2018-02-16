@@ -1,7 +1,7 @@
 import { Genre } from './genre';
-import { Auditable } from './auditable';
+import { BaseEntity } from './base-entity';
 
-export class World extends Auditable
+export class World extends BaseEntity
 {
     id: number;
     name: string;
@@ -9,7 +9,7 @@ export class World extends Auditable
     description: string;
     genres: Genre[] = [];
 
-    constructor(id: number, name: string, imageUrl: string, genres: Genre[])
+    constructor(id?: number, name?: string, imageUrl?: string, genres?: Genre[])
     {
         super();
 

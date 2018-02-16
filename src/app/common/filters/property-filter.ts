@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'props-filter'
-});
+    name: 'propsFilter'
+})
 
 export class PropsFilterPipe implements PipeTransform
 {
@@ -21,6 +21,7 @@ export class PropsFilterPipe implements PipeTransform
             for (let prop in searchObject) {
                 let valueToSearch = item[prop];
 
+                // If searchObject value is string
                 if(typeof searchObject[prop] === 'string')
                 {
                     if(typeof item[prop] !== 'string')

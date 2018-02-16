@@ -1,7 +1,13 @@
+import { UserContextService } from "../services/user-context";
+
 export class Auditable
 {
-    createdDate: Date;
-    createdBy: string;
-    modifiedDate: Date;
-    modifiedBy: string
+    _createdDate: Date;
+    _createdBy: string;
+    _modifiedDate: Date;
+    _modifiedBy: string
+
+    constructor() {
+        this._createdDate = new Date();
+    }
 }

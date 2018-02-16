@@ -13,7 +13,13 @@
               </div>
           </div>
       </div>
-      <div class="right item">
+      <div class="item">
+        <button class="ui basic button" (click)="clearFilters()">
+          <i class="remove circle icon"></i>
+          Clear Filters
+        </button>
+      </div>
+      <div class="item">
         <div class="ui action input">
           <input type="text" placeholder="Search">
           <div class="ui button">Go</div>
@@ -26,14 +32,14 @@
 <div id="world-list" class="ui grid container">
   <div class="sixteen wide column">
     <div class="ui four stackable link cards">
-      <div *ngFor="let world of worlds" class="card">
+      <div *ngFor="let world of worlds | arrayHasObject: { genres: filter.genre }" class="card">
         <div class="image">
           <img [src]="world.imageUrl">
         </div>
         <div class="content">
           <div class="header"> {{world.name}} </div>
           <div class="meta">
-            <a *ngFor="let genre of world.genres | "> {{genre.name}} </a>
+            <a *ngFor="let genre of world.genres"> {{genre.name}} </a>
           </div>
           <div class="description">
             {{ world.description }}
