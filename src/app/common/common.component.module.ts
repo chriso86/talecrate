@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    LandingPageComponent
   ],
   exports: [
     LoginComponent,
