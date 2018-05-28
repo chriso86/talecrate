@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 // Semantic UI
-import { SuiModule, SuiDropdownModule } from 'ng2-semantic-ui';
+import { SuiModule } from 'ng2-semantic-ui';
 
 // Story World
 import { CommonComponentModule } from './common/common.component.module';
@@ -16,7 +16,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 // Primary Component
 import { AppComponent } from './app.component';
-import { SuiAccordion } from 'ng2-semantic-ui/dist';
 
 // Routing
 import { appRoutes } from './app.routing';

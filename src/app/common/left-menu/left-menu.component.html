@@ -7,31 +7,37 @@
       </a>
       <div class="item">
         <b> My Stories </b>
+
         <hr>
-        <a class="item" routerLink="worlds" routerLinkActive="active">
-          <i class="world icon"></i>
-          Worlds
-        </a>
-        <a class="item" routerLink="characters" routerLinkActive="active">
-          <i class="user icon"></i>
-          Characters
-        </a>
-        <a class="item" routerLink="stories" routerLinkActive="active">
-          <i class="book icon"></i>
-          Stories
-        </a>
-        <a class="item" routerLink="scenes" routerLinkActive="active">
-          <i class="film icon"></i>
-          Scenes
-        </a>
-        <a class="item" routerLink="lore" routerLinkActive="active">
-          <i class="map signs icon"></i>
-          Lore
-        </a>
-        <a class="item" routerLink="collaborators" routerLinkActive="active">
-          <i class="users icon"></i>
-          Collaborators
-        </a>
+        
+        <sui-accordion class="styled fluid">
+          <sui-accordion-panel *ngFor="let story of stories" [isOpen]="true">
+            <a class="item" routerLink="worlds" routerLinkActive="active">
+              <i class="world icon"></i>
+              Worlds
+            </a>
+            <a class="item" routerLink="characters" routerLinkActive="active">
+              <i class="user icon"></i>
+              Characters
+            </a>
+            <a class="item" routerLink="stories" routerLinkActive="active">
+              <i class="book icon"></i>
+              Stories
+            </a>
+            <a class="item" routerLink="scenes" routerLinkActive="active">
+              <i class="film icon"></i>
+              Scenes
+            </a>
+            <a class="item" routerLink="lore" routerLinkActive="active">
+              <i class="map signs icon"></i>
+              Lore
+            </a>
+            <a class="item" routerLink="collaborators" routerLinkActive="active">
+              <i class="users icon"></i>
+              Collaborators
+            </a>
+          </sui-accordion-panel>
+        </sui-accordion>
       </div>
       <div class="item">
         <b> My Viewers </b>
