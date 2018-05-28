@@ -1,0 +1,34 @@
+<div class="ui padded grid">
+  <div class="sixteen wide column">
+    <h3 class="ui header">
+      <i class="lightbulb outline icon"></i>
+      <div class="content">
+        Recent activity
+      </div>
+    </h3>
+
+    <div class="mo-horizontal-rail">
+      <div class="sixteen wide column">
+        <div class="ui four stackable link cards">
+          <div *ngFor="let activity of user.activities" class="card">
+            <div class="image">
+              <!--<img [src]="getActivityImage(activity.activityType)">-->
+              <i class="{{getActivityIcon(activity.activityType)}} icon"></i>
+            </div>
+            <div class="content">
+              <div class="header"> {{activity.story}}</div>
+              <div class="description">
+                {{ activity.description }}
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                {{ activity.activityDate | date: 'd MMM yyyy' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
